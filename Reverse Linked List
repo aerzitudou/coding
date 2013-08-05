@@ -1,0 +1,35 @@
+  public Node reverseIterativeInPlace(Node n) {
+		if (n == null)
+			return null;
+		Node current = n;
+		Node pro = null;
+		Node next = null;
+		while (current != null) {
+			next = current.next;
+			current.next = pro;
+			pro = current;
+			current = next;
+		}
+		return pro;
+	}
+
+	public Node reverseIterativeOutofPlace(Node n) {
+		if (n == null)
+			return null;
+		Node rev = null;
+		while (n != null) {
+			rev = new Node(n.data, rev);
+			n = n.next;
+		}
+		return rev;
+	}
+
+	public Node reverseRecursiveInplace(Node n) {
+		if (n == null || n.next == null)
+			return n;
+		Node revhead = reverseRecursiveInplace(n.next);
+		n.next.next = n;
+		n.next = null;
+		return revhead;
+
+	}
