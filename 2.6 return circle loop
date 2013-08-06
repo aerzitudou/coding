@@ -1,0 +1,23 @@
+public Node findCircle(Node n){
+  	Node slowrunner=n;
+		Node fastrunner=n;
+		while(fastrunner!=null&&fastrunner.next!=null){
+			slowrunner=slowrunner.next;
+			fastrunner=fastrunner.next.next;
+			if(fastrunner==slowrunner)
+				break;
+		}
+		
+		if(fastrunner==null||fastrunner.next==null){
+			return null;//no loop
+		}
+		
+		slowrunner=n;
+		while(slowrunner!=fastrunner){
+			slowrunner=slowrunner.next;
+			fastrunner=fastrunner.next; //this time the point they meet will be collision point
+		}
+		
+		return fastrunner;
+		
+	}
