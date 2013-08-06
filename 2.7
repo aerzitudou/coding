@@ -15,7 +15,7 @@ public class PalindromeStack {
 		Node slowrunner=n;
 		Node fastrunner=n;
 		
-		Stack<Integer> rev=new Stack<Integer>();
+		Stack<Integer> rev=new Stack<Integer>();//reverse the first half of linked list
 	    while(fastrunner!=null&&fastrunner.next!=null){
 	    	rev.push(new Integer(slowrunner.data));
 	    	slowrunner=slowrunner.next;
