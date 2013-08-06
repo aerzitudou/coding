@@ -1,0 +1,43 @@
+import java.util.Stack;
+
+
+public class PalindromeStack {
+
+  public PalindromeStack() {
+		
+	}
+	
+	public static boolean palindrome(Node n){
+		if(n==null)
+			return false;
+//		if(n.next==null)
+//			return true; //can be omitted. program can support this case and return true.
+		Node slowrunner=n;
+		Node fastrunner=n;
+		
+		Stack<Integer> rev=new Stack<Integer>();
+	    while(fastrunner!=null&&fastrunner.next!=null){
+	    	rev.push(new Integer(slowrunner.data));
+	    	slowrunner=slowrunner.next;
+	    	fastrunner=fastrunner.next.next;
+	  
+	    }
+	    if(fastrunner!=null){//odd 
+	    	slowrunner=slowrunner.next;
+	    }
+	    
+	    while(slowrunner!=null){
+	    
+	    	int a=rev.pop().intValue();
+	    	
+	    	if(a!=slowrunner.data){
+	    		return false;}
+	    	slowrunner=slowrunner.next;
+	    }
+	    
+	    return true;
+	    
+		
+	}
+
+}
