@@ -1,0 +1,30 @@
+public class MyQueue {
+
+  public MyQueue() {
+		// TODO Auto-generated constructor stub
+	}
+
+	Node first, last;
+
+	public Object pop() {
+		if (first != null) {
+			Object ob = first.ob;
+			first = first.next;
+			return ob;
+		}
+		return null;
+	}
+
+	public void push(Object myob) {
+		Node obnod = new Node(myob, null);
+		if (first == null) {
+
+			first = obnod;
+			last = obnod;
+		}
+		last.next = obnod;
+		last = last.next;
+
+	}
+
+}
