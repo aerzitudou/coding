@@ -1,0 +1,35 @@
+public class MyStack {
+
+  public MyStack() {
+
+	}
+
+	Node a;
+
+	public Object pop() {
+		if (a != null) {
+			Object ob = a.ob;
+			a = a.next;
+			return ob;
+		}
+		return null;
+	}
+
+	public void push(Object myob) {
+		Node n = new Node(myob, a);
+		a = n;
+	}
+
+	public Object peek() {
+		if (a != null)
+			return a.ob;
+		return null;
+	}
+
+	public boolean isEmpty() {
+		if (a == null)
+			return true;
+		return false;
+	}
+
+}
