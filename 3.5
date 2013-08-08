@@ -1,0 +1,36 @@
+import java.util.Stack;
+
+public class MyQueueTwoStacks<T> extends Stack<T> {
+  Stack<T> newOnTop;
+	Stack<T> oldOnTop;
+
+	public MyQueueTwoStacks() {
+		newOnTop = new Stack<T>();
+		oldOnTop = new Stack<T>();
+
+	}
+
+	public T push(T a) {// Java's original API make push() return the item
+						// pushed
+		newOnTop.push(a);
+		return a;
+	}
+
+	public T pop() {
+		reverse(newOnTop);
+		return (oldOnTop.pop());
+	}
+
+	public T peek() {
+		reverse(newOnTop);
+		return (oldOnTop.peek());
+	}
+
+	public void reverse(Stack<T> stc) {
+		if (oldOnTop.isEmpty()) {//reverse the first time pop/peek is called, afterwards reverse only when there's no item  
+                             // left in the reversed stack.
+			while (!newOnTop.isEmpty())
+				oldOnTop.push(newOnTop.pop());
+		}
+	}
+}
