@@ -1,0 +1,44 @@
+//one single array to implement 2 stacks. First stack has twice the elements than the second one.
+public class ArrayStack {
+
+  public ArrayStack() {
+		// TODO Auto-generated constructor stub
+	}
+	int fir=200;
+	int sec=100;
+	Object[] buffer=new Object[fir+sec];
+    int[] pointer={-1,-1};
+	
+	public void push (int stackNum, Object ob) throws Exception{
+		if(stackNum==0&&bufferNum(stackNum)>=fir-1)
+			throw new Exception("First stack runs out of space.");
+		if(stackNum==1&&bufferNum(stackNum)>=(sec+fir-1))
+			throw new Exception("second stack runs out of space.");
+		
+		pointer[stackNum]++;
+		buffer[bufferNum(stackNum)]=ob;
+	}
+	
+	public Object pop (int stackNum) throws Exception{
+		if(pointer[stackNum]<0)
+			throw new Exception("no more object in this stack.");
+		
+		
+		Object myob=buffer[bufferNum(stackNum)];
+		buffer[bufferNum(stackNum)]=null;
+		pointer[stackNum]--;
+		return myob;
+	}
+
+	public Object peek(int stackNum){
+		return buffer[bufferNum(stackNum)];
+	}
+	
+	public boolean isEmpty(int stackNum){
+		return pointer[stackNum]==-1;
+	}
+	
+	public int bufferNum(int a){
+		return (a*fir+pointer[a]);
+	}
+}
