@@ -1,0 +1,5 @@
+public void hanoi(int n, Tower a, Tower b, Tower c){//we want all the disks moving from a to c
+     hanoi(n-1,a,c,b);
+     moveTop(a,c);//move left one from a to the destination c
+     hanoi(n-1,b,a,c);//orginal now=previous buffer=b, buffer=previous origin=a, destination=c
+}
