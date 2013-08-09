@@ -1,0 +1,31 @@
+public class TreeCell<T> {
+  private T Datum;
+	private TreeCell<T> left;
+	private TreeCell<T> right;
+
+	public TreeCell(T Datum, TreeCell<T> left, TreeCell<T> right) {
+		this.Datum = Datum;
+		this.left = left;
+		this.right = right;
+	}
+
+	public TreeCell(T Datum) {
+		this.Datum = Datum;
+	}
+
+	public void inOrder(TreeCell<T> a) {// LMR
+		if (a == null)
+			return;
+		inOrder(a.left);
+		System.out.println(a.Datum);
+		inOrder(a.right);
+	}
+
+	public void preOrder(TreeCell<T> a) {// MLR
+		if (a == null)
+			return;
+		System.out.println(a.Datum);
+		preOrder(a.left);
+		preOrder(a.right);
+	}
+}
