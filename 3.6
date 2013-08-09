@@ -1,0 +1,20 @@
+// 3.6
+  public static Stack<Integer> sortStack(Stack<Integer> origin) {
+		Stack<Integer> sorted = new Stack<Integer>();
+		if (origin.isEmpty())
+			return null;
+
+		int tmp;
+		while (!origin.isEmpty()) {
+			tmp = origin.pop();
+
+			while (!sorted.isEmpty() && tmp < sorted.peek().intValue()) {
+				origin.push(sorted.pop());//只要sorted不为空,并且原stack pop出来的数小于最上方的数，就将sorted最上方数转移至原stack中。
+
+			}
+
+			sorted.push((Integer) tmp);
+
+		}
+		return sorted;
+	}
