@@ -1,0 +1,30 @@
+public enum State{
+	Unvisited, Visited;
+}
+
+
+public static boolean search(Node start, Node end){
+	if(start==null||end==null){
+	return false;
+	}
+
+	start.State=State.Visited;
+	for(Node v:start.getAdjancent()){
+	   if(v==end)
+	      return true;
+	   if(v.State=State.Unvisited){
+          search(v,end);
+	   }
+	}
+	return false;
+}
+
+
+public static boolean search(Graph g, Node start, Node end){
+	if(g==null) return false;
+	else {
+	   return search(start, end);
+	}
+}
+
+
