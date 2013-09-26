@@ -1,0 +1,16 @@
+public static Node makeBiTree(int[] array){
+	if (array==null) return null;
+    return makeBiTree(array, 0, array.length-1);
+}
+
+
+public static Node makeBiTree(int[] array, int a, int b){
+	if(a>b) return null;
+	int mid=(a+b)/2;
+	Node n=new Node(array[mid]);
+    
+    n.left=makeBiTree(array,0,mid-1);
+    n.right=makeBiTree(array,mid+1,b);
+
+    return n;
+}
